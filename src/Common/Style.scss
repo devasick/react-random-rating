@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+* {
+  box-sizing: border-box;
+ }
+ *:before,
+ *:after {
+  box-sizing: border-box;
+ }
+ html,
+ body {
+  height: 100%;
+  position: relative;
+ }
+$bgColor:#fff;
+body{
+    background:$bgColor;
+    color: #2b2b2b;
+    margin: 0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+}
+// Header
+header{
+  nav{
+    height: 90px;
+    line-height: 88px;
+    background: #B24592;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F15F79, #B24592); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    ul{
+      a{
+        color: #2b2b2b;
+        font-size: 3em;
+        text-transform: uppercase;
+      }
+    }
+    .brand-logo {
+      a{
+        
+      }
+      img{
+      width: 80%;
+          padding: 8px 20px 5px 20px;
+    background: #fff;
+    }
+   }
+  } 
+}
+.movielist{
+  .horizontal{
+    padding:0;
+    margin: 0;
+  }
+  .card-stacked{
+    h5{
+      margin: 0;
+      padding: 12px 0px 0px 12px;
+    }
+  }
+}
+footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 10px;
+}
