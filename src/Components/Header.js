@@ -25,6 +25,7 @@ class Header extends Component {
      
       <Router>
       <header>
+      <div className="navbar-fixed">
       <nav>
       <div className="nav-wrapper container">
         <a href="#" className="brand-logo"><img src={logo} alt={"logo"}/> </a>
@@ -35,6 +36,7 @@ class Header extends Component {
         </ul>
       </div>
     </nav>
+    </div>
         </header> 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

@@ -30,7 +30,7 @@ header{
     
     ul{
       a{
-        color: #2b2b2b;
+        color: #fff;
         font-size: 3em;
         text-transform: uppercase;
       }
@@ -48,19 +48,34 @@ header{
   } 
 }
 .movielist{
+  .MuiRating-label{
+    font-size: 1.8rem;
+    color: red;
+  }
+  .display-text-group{
+    padding: 10px;
+    text-align: justify;
+  }
+  .box{
+    margin: 0;
+  }
   .horizontal{
     padding:0;
-    margin: 0;
+    margin: 0 0 15px 0;
   }
   .card-stacked{
     h5{
       margin: 0;
       padding: 12px 0px 0px 12px;
     }
+    h5:hover{
+      color: #F15F79;
+    }
   }
 }
-footer {
-  background-color: #F1F1F1;
+footer.page-footer {
+ 
+  background-color: #000001 !important;
   text-align: center;
   padding: 10px;
 }

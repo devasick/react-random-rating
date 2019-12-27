@@ -1,34 +1,67 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import ReadMoreReact from 'read-more-react';
+import Rating from '@material-ui/lab/Rating';
+import StarRatingComponent from 'react-star-rating-component';
+
+
+
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
 
 export default class Home extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-          movielists: []
-        }
-      }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //       movielists: []
+    //     }
+    //   }
+
+    state = {
+        movies: [],
+        newMovieData: {
+          title: "",
+          rating: ""
+        },
+        editMovieData: {
+          id: "",
+          rating: ""
+        },
+        newMovieModal: false,
+        editEditModal: false
+      };
 
       componentDidMount(){
          
-        axios.get('./movie-response.json')
-        .then(
-          newData => this.setState({
-            movielists: newData.data.results,
-          })
-       
-          )
-        .catch(error => alert(error))
+         this._refreshMovies();
       }
 
+      _refreshMovies() {
+        axios.get("http://localhost:3000/results").then(response => {
+          this.setState({
+            movies: response.data
+          });
+        });
+      }
+
+
+      onStarClick(nextValue, prevValue, name) {
+        const movie_id = name.split("-").pop() // remove string
+         
+        //this.setState({id:movie_id,rating: nextValue});
+        this.setState({
+            editMovieData: { id:movie_id,rating: nextValue }
+          });
+
+        console.log(this.state)
+      }
       
 
     render() {
-        console.log(this.state.movielists)
-        var  getData =  this.state.movielists;
+        console.log(this.state.movies)
+        var  getData =  this.state.movies;
         const minimumLength = 50
         const idealLength = 100
         const maxLength = 200
@@ -53,7 +86,15 @@ export default class Home extends Component {
                 max={maxLength}
                 readMoreText="Read more..."/>
             <div className="card-action">
-                {gh.vote_average}
+                 
+            {gh.rating}
+         <StarRatingComponent 
+          name= { "movie-id-" + gh.id }  
+          starCount={5}
+          value={gh.rating}
+          onStarClick={this.onStarClick.bind(this)}
+        />
+          
             
             </div>
             </div>
