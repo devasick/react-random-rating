@@ -39,7 +39,7 @@ export default class Home extends Component {
       }
 
       _refreshMovies() {
-        axios.get("http://localhost:3000/results").then(response => {
+        axios.get("https://react-movie-rating-app.herokuapp.com/results").then(response => {
           this.setState({
             movies: response.data
           });
