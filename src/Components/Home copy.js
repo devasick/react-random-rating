@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import ReadMoreReact from 'read-more-react';
-import Rating from '@material-ui/lab/Rating';
-import Button from '@material-ui/core/Button';
-
+import StarRatingComponent from 'react-star-rating-component'
 
 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
@@ -17,92 +15,104 @@ export default class Home extends Component {
         super(props)
         this.state = {
           movies: [],
-          editdata:[],
-          filter:"",
+          editMovieData: {
+            id: "",
+            rating: "",
+            poster_path: "",
+            title:""
+          },
+          filter:""
         }
-    
         
       }
+ 
 
        componentWillMount(){
          
          this._refreshMovies();
-
-        // this.timer = setInterval(()=> this.getMovies(), 1000)
       }
 
       _refreshMovies() {
-        axios.get("http://asickweb.com/api/?getvalue").then(response => {
-          console.log(response.data)
+        axios.get("http://localhost:3000/results").then(response => {
           this.setState({
             movies: response.data
           });
         });
       }
 
-      
-      // function for sorting
+      filter(e){
+        
+        this.setState({filter: e.target.value})
+      }
+    
       filterChamp(e){
+         
         this.setState({filter: e.target.value})
       }
 
-      
+     
 
-      handleNameInput = e => {
-        const rating_star =  e.target.value;
-        const movie_id = e.target.name.split("-").pop()
-        axios
-          .post("http://asickweb.com/api/?", {
-            id:movie_id,rating:rating_star
-          })
-          .then(response => {
-              console.log(response)
-              this._refreshMovies();
-
-          });
-       
-      };
-
-      handleClick() {
-         
-    
-        console.log('dddd')
-       
+      updateMovie() {
+        
       }
 
-      async getMovies(){
 
-        fetch('http://asickweb.com/api/?getvalue', {method: "GET"})
-         .then((response) => response.json())
-         .then((responseData) =>
-         {
-           //set your data here
-            console.log(responseData);
-         })
-         .catch((error) => {
-             console.error(error);
-         });
-       
-       }
-
+      onStarClick(nextValue, prevValue, name) {
+        
+        const movie_id = name.split("-").pop() // remove string
+        
     
 
-    render() {
-      
-        const  getData =  this.state.movies;
-        // sorting lowest rating & highest 
-        if(this.state.filter){
+          axios.get("http://localhost:3000/results/" + movie_id).then(response => {
+            this.setState({
+              id: response.data.id,
+              poster_path: response.data.poster_path,
+              title: response.data.title,
+              overview:response.data.overview
 
+            });
+          });
+
+          this.setState({
+            editMovieData: { id:movie_id,poster_path: this.state.poster_path,title: this.state.title,rating: nextValue,overview:this.state.overview }
+          });
+
+          
+
+          let {  id,poster_path,title,rating,overview } = this.state.editMovieData;
+          console.log(this.state.editMovieData)
+        // axios
+        //   .put("http://localhost:3000/results/" + this.state.editMovieData.id, {
+        //     rating
+        //   })
+        //   .then(response => {
+        //     this._refreshBooks();
+        //     this.setState({
+        //       editBookData: {
+        //         id: "",
+        //         rating: ""
+        //       }
+        //     });
+             
+        //   });
+
+      }
+      
+
+    render() {
+  
+        const  getData =  this.state.movies;
+        if(this.state.filter){
             if(this.state.filter == 'desc'){
-                getData.sort((a, b) => b.rating - a.rating);
-            } else if(this.state.filter == 'asc'){
-                getData.sort((a, b) => a.rating - b.rating);    
+            getData.sort((a, b) => b.rating - a.rating);
+            } 
+            else if(this.state.filter == 'asc'){
+            getData.sort((a, b) => a.rating - b.rating);    
             } else if(this.state.filter == '0'){
-                getData.sort((a, b) => a.id - b.id);    
+            getData.sort((a, b) => a.id - b.id);    
             }
-        } 
-        // star 
-        
+        }  
+   
          
          
         return (
@@ -116,11 +126,6 @@ export default class Home extends Component {
           <option value="desc">Rating Descending</option>
           <option value="asc">Rating Ascending</option>
         </select>
-         </div>
-         <div className="col s9 random-rating-button">
-         <Button variant="contained" color="secondary" onClick={this.handleClick}>
-  Random Rating
-</Button>
          </div>
         </div>
 
@@ -142,14 +147,13 @@ export default class Home extends Component {
                 readMoreText="Read more..."/>
             <div className="card-action">
                  
-        <Rating
-            name= { "movie-id-" + gh.id }  
-            value={gh.rating}
-            max={5}
-            onChange={this.handleNameInput}
-            />
-
-          <div>The number is: {this.state.random}</div>
+            
+         <StarRatingComponent 
+          name= { "movie-id-" + gh.id }  
+          starCount={5}
+          value={gh.rating}
+          onStarClick={this.onStarClick.bind(this)}
+        />
           
             
             </div>

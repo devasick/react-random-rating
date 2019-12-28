@@ -41,10 +41,11 @@ class Header extends Component {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Router basename={'/movie-rating'}>
         <Route exact path="/">
             <Home />
           </Route>
-  
+        </Router>
         </Switch>
       
     </Router>
