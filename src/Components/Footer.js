@@ -25,7 +25,6 @@ function Footer() {
     <div className="footer-copyright">
       <div className="container">
       © 2019 Copyright www.asickweb.com
-      <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>

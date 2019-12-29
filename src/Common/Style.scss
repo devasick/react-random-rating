@@ -56,6 +56,13 @@ header{
 }
 .movielist{
 
+  label{
+    width: 100%;
+    font-size: 1rem;
+    color: #000;
+    font-weight: bold;
+  }
+
   .row .col.s6 {
     width: 48%;
     margin-left: auto;
@@ -85,7 +92,10 @@ header{
   }
   .random-rating-button{
     text-align: center;
-    margin-top: 20px; 
+    margin-top: 10px; 
+  }
+  .MuiButton-label{
+    padding: 8px;
   }
   .box{
     margin: 0;
