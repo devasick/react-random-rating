@@ -46,6 +46,10 @@ api/index.php
 
 server path: const URL_PATH = 'http://asickweb.com/api/'; change your local path
 
+TDD File :
+
+src/RatingList.spec.js
+
 
 
 
