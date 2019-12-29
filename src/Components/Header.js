@@ -8,7 +8,7 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
-import Home from "./Home";
+import RatingList from "./RatingList";
 import logo from '../Common/images/logo.png' 
 
 
@@ -43,7 +43,7 @@ class Header extends Component {
         <Switch>
         <Router basename={'/movie-rating'}>
         <Route exact path="/">
-            <Home />
+            <RatingList />
           </Route>
         </Router>
         </Switch>

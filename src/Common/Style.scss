@@ -19,6 +19,13 @@ body{
     padding:0;
     font-family: 'Roboto', sans-serif;
 }
+.msg {
+  width:100%;
+  border: 1px solid;
+  padding:10px;
+  margin: 20px;
+  color: green;
+}
 // Header
 header{
   nav{
@@ -48,6 +55,18 @@ header{
   } 
 }
 .movielist{
+
+  .row .col.s6 {
+    width: 48%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  
+   .horizontal {
+    padding: 0;
+    margin: 0 15px 15px 0 !important;
+  }
   h3{
     padding: 0;
     margin: 46px 0 0 0;
@@ -71,10 +90,7 @@ header{
   .box{
     margin: 0;
   }
-  .horizontal{
-    padding:0;
-    margin: 0 0 15px 0;
-  }
+ 
   .card-stacked{
     h5{
       margin: 0;
@@ -105,3 +121,4 @@ footer.page-footer {
     }
   }
 }
+
