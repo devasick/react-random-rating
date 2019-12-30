@@ -18,7 +18,6 @@ press again it will stop random rating.
 5. Focus on test driven approach while coding this assignment.
 6. Git repo with commit messages will be a plus.
 
-===============================
 Please visit Live Demo URL: http://asickweb.com/movie-rating/
 ===================================
 
@@ -70,6 +69,16 @@ cd api
 
 npm install 
 npm start
+
+Open the PSQL shell and login to PSQL
+
+Create a new PSQL database if you have not already done so.
+
+Simply copy the SQL code in the Server/main/schema.sql file and paste it in as commands into the PSQL shell.
+
+In the api/db.js file replace the code with the login info for your own PSQL database.
+
+After setting up the PSQL database and making the required adjustments in the db.js file, the app will be fully functional.
 
 
 
