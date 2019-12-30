@@ -68,7 +68,6 @@ Server Side:
 cd api 
 
 npm install 
-npm start
 
 Open the PSQL shell and login to PSQL
 
@@ -80,6 +79,7 @@ In the api/db.js file replace the code with the login info for your own PSQL dat
 
 After setting up the PSQL database and making the required adjustments in the db.js file, the app will be fully functional.
 
+npm start
 
 
 
