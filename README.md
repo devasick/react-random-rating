@@ -52,25 +52,29 @@ Postgres
 
 
 Setup:
+=======
+
+Client Side:
 
 git clone https://github.com/devasick/react-random-rating.git
 cd react-random-rating
 npm install 
 npm start
 
-Database : 
+Server Side:
 
-import movies_ratings.sql from sql folder
+cd api 
 
-Server File: 
+npm install 
+npm start
 
-Change Database name : 
 
-api/index.php 
+
 
 server path: const URL_PATH = 'http://asickweb.com/api/'; change your local path
 
 TDD File :
+========
 
 src/RatingList.spec.js
 
