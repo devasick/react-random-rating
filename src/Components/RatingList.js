@@ -5,7 +5,7 @@ import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 // image path 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
-const URL_PATH = 'http://asickweb.com/api/';
+const URL_PATH = 'http://localhost:9000/api/';
 //const URL_PATH = 'http://localhost/api-rating/';
 // view more content
 const minimumLength = 50
@@ -35,7 +35,7 @@ export default class RatingList extends Component {
       }
 
       _refreshMovies() {
-        axios.get(URL_PATH + "?getvalue").then(response => {
+        axios.get(URL_PATH+"all").then(response => {
           this.setState({
             movies: response.data
           });
@@ -50,7 +50,7 @@ export default class RatingList extends Component {
         const rating_star =  e.target.value;
         const movie_id = e.target.name.split("-").pop()
         axios
-          .post(URL_PATH, {
+          .put(URL_PATH+"send", {
             id:movie_id,rating:rating_star
           })
           .then(response => {
@@ -66,7 +66,7 @@ export default class RatingList extends Component {
 
       async getMovies(){
 
-        axios.get(URL_PATH + "?getRandom").then(response => {
+        axios.get(URL_PATH+"rand").then(response => {
              
              this.setState({
                movies: response.data
