@@ -74,7 +74,7 @@ Open the PSQL shell and login to PSQL
 
 Create a new PSQL database if you have not already done so.
 
-Simply copy the SQL code in the Server/main/schema.sql file and paste it in as commands into the PSQL shell.
+Simply copy the SQL code in the sql/movies_ratings.sql file and paste it in as commands into the PSQL shell.
 
 In the api/db.js file replace the code with the login info for your own PSQL database.
 
