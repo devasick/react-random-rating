@@ -74,7 +74,8 @@ npm start
 
 
 
-server path: const URL_PATH = 'http://asickweb.com/api/'; change your local path
+server live path: const URL_PATH = 'http://asickweb.com/api/'; 
+server local path: const URL_PATH = 'http://localhost:9000/api/'; 
 
 TDD File :
 ========
