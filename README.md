@@ -17,6 +17,7 @@ press again it will stop random rating.
 4. Feel free to use any UI elements or library.
 5. Focus on test driven approach while coding this assignment.
 6. Git repo with commit messages will be a plus.
+
 ===============================
 Result : Please visit Live URL: http://asickweb.com/movie-rating/
 ==================
