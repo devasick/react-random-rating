@@ -19,7 +19,6 @@ press again it will stop random rating.
 6. Git repo with commit messages will be a plus.
 
 ===============================
-Result : 
 Please visit Live URL: http://asickweb.com/movie-rating/
 ==================
 Section 1: Express Server and PSQL Database setup
