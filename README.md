@@ -19,8 +19,9 @@ press again it will stop random rating.
 6. Git repo with commit messages will be a plus.
 
 ===============================
-Please visit Live URL: http://asickweb.com/movie-rating/
-==================
+Please visit Live Demo URL: http://asickweb.com/movie-rating/
+===================================
+
 Section 1: Express Server and PSQL Database setup
 Project Structure
 Basic Express setup
@@ -29,11 +30,12 @@ axios vs react-router vs express router
 Setting up the database
 PSQL foreign keys
 PSQL shell
+
 Setting up Express Routes and PSQL queries
 
 Change directory to api folder from root path
 
-run install 
+npm install
 
 API URL : http://localhost:9000/
 
@@ -48,6 +50,7 @@ Redux
 Redux
 Express JS
 Postgres
+Materialize
 
 
 
