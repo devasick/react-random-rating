@@ -6,7 +6,7 @@ var pool = require('../db')
 router.get("/all", function(req, res, next) {
 
   pool.query(`SELECT * FROM movies_ratings 
-              ORDER BY id DESC`, 
+              ORDER BY id ASC`, 
             (q_err, q_res) => {
                   res.json(q_res.rows)
   })
