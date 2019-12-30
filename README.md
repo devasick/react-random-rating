@@ -20,12 +20,36 @@ press again it will stop random rating.
 
 Result : Please visit Live URL: http://asickweb.com/movie-rating/
 
+Section 1: Express Server and PSQL Database setup
+Project Structure
+Basic Express setup
+Connecting to Client side
+axios vs react-router vs express router
+why not use an ORM like Sequelize?
+Setting up the database
+PSQL foreign keys
+PSQL shell
+Setting up Express Routes and PSQL queries
+
+Change directory to api folder from root path
+
+run install 
+
+API URL : http://localhost:9000/
+
+
+
+======================
+
 Technologies: 
 
 React 
-MYSQL
 Redux
 Redux
+Express JS
+Postgres
+
+
 
 Setup:
 
