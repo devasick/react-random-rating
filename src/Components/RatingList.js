@@ -20,7 +20,7 @@ export default class RatingList extends Component {
         this.stopbutton = this.stopbutton.bind(this);
         this.state = {
           movies: [],
-          editdata:[],
+          //editdata:[],
           filter:"",
           alert:false,
           cls:"",
@@ -95,6 +95,14 @@ export default class RatingList extends Component {
     
 
     render() {
+        // Button
+        const isButtonClick = this.state.isActive;
+        let button;
+        if (isButtonClick) {
+          button = <Button className="button-stop" onClick={this.stopbutton} >Stop</Button>;
+        } else {
+          button = <Button variant="contained" color="secondary" onClick={this.handleClick} ><i className="material-icons play_arrow"></i>Random Rating</Button>;
+        }
 
         const alert = this.state.alert;
         const cls = this.state.cls;
@@ -130,11 +138,14 @@ export default class RatingList extends Component {
           </select>
          </div>
          <div className="col s5 random-rating-button">
+         {button}
+         </div>
+         {/* <div className="col s5 random-rating-button">
             <Button variant="contained" color="secondary" onClick={() => this.handleClick("start")}>Random Rating</Button>
          </div>
          <div className="col s1 random-rating-button">
          <Button variant="contained" color="secondary" onClick={ (e) => this.stopbutton() }>Stop</Button>
-         </div>
+         </div> */}
         </div> 
              <div className="row">    
             {getData.map((gh, i)=>(
