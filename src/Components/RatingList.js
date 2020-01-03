@@ -5,8 +5,8 @@ import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 // image path 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
-const URL_PATH = 'http://localhost:9000/api/';
-//const URL_PATH = 'http://localhost/api-rating/';
+const URL_PATH = 'https://react-api-demo123.herokuapp.com/api/';
+//const URL_PATH = 'http://localhost:9000/api/';  // local url
 // view more content
 const minimumLength = 50
 const idealLength = 100
