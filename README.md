@@ -2,6 +2,8 @@
 
 Demo URL :  http://asickweb.com/movie-rating/
 
+Demo heroku: http://react-rating.herokuapp.com/
+
 1. Pick your top 10+ fav books, movies, video games, food, or whatever you
 wish. Build an Angular + ngrx/store or react-redux app that lists these
 items. Initial list of any of these item can be stored in json file no
