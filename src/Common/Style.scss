@@ -24,12 +24,19 @@ body{
   border: 1px solid;
   padding:10px;
   margin: 20px;
-  color: green;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
 }
 // Header
 header{
   nav{
-    height: 90px;
+    height: 11.3vh;
     line-height: 88px;
     background: #B24592;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #F15F79, #B24592);  /* Chrome 10-25, Safari 5.1-6 */
@@ -89,7 +96,7 @@ header{
     font-weight: bold;
   }
 
-  .row .col.s6 {
+  .row .col.m6 {
     width: 48%;
     margin-left: auto;
     left: auto;
@@ -155,6 +162,19 @@ footer.page-footer {
         text-transform: uppercase;
       }
     }
+  }
+}
+
+// media query:
+@media only screen and (max-width: 768px) {
+  header nav{
+    height: 14vh;
+  }
+  .movielist .row .col.s6{
+    width: 46%;
+  }
+  .movielist .row .col.m6{
+    width: 100%;
   }
 }
 

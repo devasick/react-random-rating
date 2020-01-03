@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReadMoreReact from 'read-more-react';
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
+import FlashMessage from 'react-flash-message'
 // image path 
 const IMG_PATH = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
 const URL_PATH = 'https://react-api-demo123.herokuapp.com/api/';
@@ -23,7 +24,6 @@ export default class RatingList extends Component {
           //editdata:[],
           filter:"",
           alert:false,
-          cls:"",
           isActive:false
         }
 
@@ -55,7 +55,7 @@ export default class RatingList extends Component {
           })
           .then(response => {
               
-              this.setState({alert: 'Your rating has been saved !',cls:"msg"})
+              this.setState({alert:true})
               this._refreshMovies();
               
 
@@ -104,12 +104,25 @@ export default class RatingList extends Component {
           button = <Button variant="contained" color="secondary" onClick={this.handleClick} ><i className="material-icons play_arrow"></i>Random Rating</Button>;
         }
 
-        const alert = this.state.alert;
+       
+         
+          function SuccessAlert(props) {
+            if (!props.alert) {
+              return null;
+            }
+            return (
+              <FlashMessage duration={2500}>
+              <div className="msg">
+              <strong>Your rating has been saved !</strong>
+              </div>
+              </FlashMessage>
+            );
+          }
+        
         const cls = this.state.cls;
         const  getData =  this.state.movies;
         // sorting lowest rating & highest 
         if(this.state.filter){
-
             if(this.state.filter == 'desc'){
                 getData.sort((a, b) => b.rating - a.rating);
             } else if(this.state.filter == 'asc'){
@@ -125,11 +138,12 @@ export default class RatingList extends Component {
           
         <div className="container movielist">
         <h3>Movie List</h3>
-        <div className={cls}>
-           {alert}
+        
+        <div>
+           <SuccessAlert alert={this.state.alert} /> 
         </div>
         <div className="row">
-        <div className="col s3">
+        <div className="col m4 s4">
         <label>Sort By</label>
           <select onChange={this.filterChamp.bind(this)} value={this.state.filterChamp} className="browser-default">
               <option value="0">Select</option>
@@ -140,17 +154,12 @@ export default class RatingList extends Component {
          <div className="col s5 random-rating-button">
          {button}
          </div>
-         {/* <div className="col s5 random-rating-button">
-            <Button variant="contained" color="secondary" onClick={() => this.handleClick("start")}>Random Rating</Button>
-         </div>
-         <div className="col s1 random-rating-button">
-         <Button variant="contained" color="secondary" onClick={ (e) => this.stopbutton() }>Stop</Button>
-         </div> */}
+       
         </div> 
              <div className="row">    
             {getData.map((gh, i)=>(
             
-            <div className="col s6 card horizontal box" key={i}>
+            <div className="col s12 m6 l6 card horizontal box" key={i}>
               <div className="card-image">  
                 <img src={IMG_PATH+gh.poster_path} alt={gh.title}/>
                 </div> 
