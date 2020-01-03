@@ -168,13 +168,19 @@ footer.page-footer {
 // media query:
 @media only screen and (max-width: 768px) {
   header nav{
-    height: 14vh;
+    height: 10vh;
   }
   .movielist .row .col.s6{
     width: 46%;
   }
   .movielist .row .col.m6{
     width: 100%;
+  }
+
+  header nav .brand-logo img {
+    width: 100%;
+    padding: 7px 19px 5px 20px;
+    background: #fff;
   }
 }
 
