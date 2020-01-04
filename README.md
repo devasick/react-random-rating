@@ -85,7 +85,7 @@ npm start
 
 
 
-server live path: const URL_PATH = 'http://asickweb.com/api/'; 
+server live path: const URL_PATH = 'https://react-api-demo123.herokuapp.com/api/'; 
 server local path: const URL_PATH = 'http://localhost:9000/api/'; 
 
 TDD File :
