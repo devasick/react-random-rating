@@ -135,7 +135,12 @@ export default class RatingList extends Component {
     
 
     render() {
-        // Button
+        /** isButtonClick : True & Flase
+         * Button Random Rating & Stop Button will shown
+         * isActive  -   random button will True or False
+         * handleClick - function trigger to random data
+         * stopbutton  - function for stop the randdom data 
+         */
         const isButtonClick = this.state.isActive;
         let button;
         if (isButtonClick) {
@@ -145,21 +150,19 @@ export default class RatingList extends Component {
         }
 
        
-         // console.log(this.state.alert)
-          function SuccessAlert(props) {
-             console.log(props.alert)
-            if (!props.alert) {
-                return (null);
-            }  
-            return (
-              <FlashMessage duration={2500}>
-              <div className="msg">
-              <strong>Your rating has been saved !</strong>
-              </div>
-              </FlashMessage>
-            );
-           
-          }
+      
+        function SuccessAlert(props) {
+          if (!props.alert) {
+              return (null);
+          }  
+          return (
+            <FlashMessage duration={2500}>
+            <div className="msg">
+            <strong>Your rating has been saved !</strong>
+            </div>
+            </FlashMessage>
+          );
+        }
         
         const  getData =  this.state.movies;
         // sorting lowest rating & highest 
